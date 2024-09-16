@@ -48,6 +48,10 @@ group :development, :test do
   gem "rspec-rails", "~> 7.0.0"
   gem "factory_bot_rails"
   gem "faker"
+
+  # Application preloader
+  gem "spring"
+  gem "spring-commands-rspec"
 end
 
 group :development do
