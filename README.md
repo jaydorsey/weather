@@ -1,24 +1,16 @@
-# README
+# Weather app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+- A free API key from [Open Weather](https://openweathermap.org/) 
 
-* Ruby version
+## Setup
 
-* System dependencies
+```
+git clone https://github.com/jaydorsey/weather.git
+cd weather
+bin/setup
+bin/rails dev:cache # turns on the cache
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+export OPEN_WEATHER_API_KEY=<your key>
+```

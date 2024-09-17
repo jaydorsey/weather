@@ -38,5 +38,8 @@ module Weather
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.x.open_weather.api_key = 
+      ENV.fetch('OPEN_WEATHER_API_KEY') { raise 'You need an Open Weather key! Check the README' }
   end
 end
