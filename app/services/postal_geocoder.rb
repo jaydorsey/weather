@@ -6,15 +6,10 @@
 class PostalGeocoder
   include OpenWeatherAdapter
 
-  attr_accessor :cached, :zip_code
+  attr_accessor :zip_code
 
   def initialize(zip_code)
     @zip_code = zip_code
-    @cached = true
-  end
-
-  def call
-    validate && response
   end
 
   def url
@@ -33,8 +28,11 @@ class PostalGeocoder
 
   private
 
+  # Check ZIP code format. Limited to a simple 5 digit check at this time
+  #
+  # @return [Boolean] true if the ZIP code is properly formatted
   def properly_formatted_zip_code
-    @zip_code = zip_code.to_s[0..5].match?(/[0-9]{5}/)
+    zip_code.to_s[0..5].match?(/[0-9]{5}/)
   end
 
   # Checks for zip code validity. Only supports zip 5 for now
@@ -46,23 +44,21 @@ class PostalGeocoder
   end
 
   # Fetches, parses, and returns the response. Uses the default Rails cache to store results for
-  # up to 30 minutes
+  # up to 30 days
   #
   # @return [Hash] The geocoded response, pulled from cache when possible
   def response
     return @response if defined?(@response)
 
-    @response = Rails.cache.fetch("geocode/#{zip_code}", expires_in: 30.minutes) do
-      external_geocode
-    end
+    validate
+
+    @response = Rails.cache.fetch("geocode/#{zip_code}", expires_in: 30.days) { fetch_response }
   end
 
   # Performs the actual external fetch of the geocode. Also handles flipping the flag to denote this wasn't cached
   #
   # @return [Hash] The geocoded response from 3rd party API
-  def external_geocode
-    @cached = false
-
+  def fetch_response
     JSON.parse(HTTP.get(url).body.to_s)
   end
 end

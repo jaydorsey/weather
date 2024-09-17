@@ -1,0 +1,5 @@
+<%= turbo_stream.update "temperature" do %>
+  <div>Current time:<%= Time.zone.now %></div>
+  <div>Current temperature: <%= @weather.temp %></div>
+  <div>Cached?: <%= @cached || 'false' %></div>
+<% end %>
