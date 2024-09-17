@@ -1,5 +1,6 @@
 <%= turbo_stream.update "temperature" do %>
-  <div>Current time:<%= Time.zone.now %></div>
-  <div>Current temperature: <%= @weather.temp %></div>
-  <div>Cached?: <%= @cached || 'false' %></div>
+  It's currently <%= @weather.temp %> <%= @weather.scale %> with a low of 
+  <%= @weather.min_temp%> <%= @weather.scale %> and a high of
+  <%= @weather.max_temp%> <%= @weather.scale %>. This temperature reading is
+  <%= @cached ? "cached" : "not cached" %>
 <% end %>

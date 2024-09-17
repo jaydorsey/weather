@@ -1,10 +1,13 @@
 <%= form_with url: "/temperature", data: { turbo_frame: "temperature" } do |form| %>
-  <div>
-    <%= form.label :zip_code, "ZIP code" %>
-    <%= form.text_field :zip_code, value: "12345", autocomplete: :off, maxlength: 5, pattern: "[0-9]{5}", title: "5 digit ZIP code (USA)" %>
-    <%= form.button "Get temperature" %>
+<form class="w-full max-w-sm">
+  <div class="flex items-center border-b border-teal-500 py-2">
+    <%= form.text_field :zip_code, value: "12345", autocomplete: :off, maxlength: 5, pattern: "[0-9]{5}", title: "5 digit ZIP code (USA)", class: "appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" %>
+    <%= form.button "Get temperature", class: "flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" %>
   </div>
+</form>
 <% end %>
 
+<div>
 <%= turbo_frame_tag "temperature" do %>
 <% end %>
+</div>

@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background-image: url('https://picsum.photos/id/10/1900/1200');
+}

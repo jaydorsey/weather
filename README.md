@@ -46,3 +46,5 @@ weather.max_temp
 weather.min_temp
 => 68.67
 ```
+
+![image](https://github.com/user-attachments/assets/49a47830-e312-4950-8947-ad9b6e1a257c)

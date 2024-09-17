@@ -37,6 +37,11 @@ class WeatherFetcher
     "weather/#{lat}/#{lon}"
   end
 
+  # @return [String] The temperature scale. Fahrenheit only
+  def scale
+    "°F"
+  end
+
   private
 
   # Unit of measurement. standard, imperial, or metric
