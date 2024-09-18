@@ -12,19 +12,27 @@ class PostalGeocoder
     @zip_code = zip_code
   end
 
+  # @return [String] The URL of the API request
   def url
     "https://api.openweathermap.org/geo/1.0/zip?zip=#{zip_code},#{country_code}&appid=#{api_key}"
   end
 
+  # @return [Float] The latitude
   def lat
     response["lat"]
   end
 
+  # @return [Float] The longitude
   def lon
     response["lon"]
   end
   alias_method :long, :lon
   alias_method :lng, :lon
+
+  # @return [String] The city or county
+  def name
+    response["name"]
+  end
 
   private
 

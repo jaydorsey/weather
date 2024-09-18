@@ -1,5 +1,9 @@
 # Weather app
 
+This sample app uses a free API key to retrieve a lat/lon (based on a ZIP code input) 
+and display the current weather. It's a vanilla Rails 7 application with some very light
+turbo work and some poorly done tailwind.
+
 ## Prerequisites
 
 - A free API key from [Open Weather](https://openweathermap.org/) 
@@ -15,6 +19,13 @@ bin/setup
 bin/rails dev:cache # turns on the caching
 
 export OPEN_WEATHER_API_KEY=<your key>
+```
+
+## Running tests
+
+```
+bin/rspec
+
 ```
 
 ## Geocoding ZIP codes
@@ -47,4 +58,5 @@ weather.min_temp
 => 68.67
 ```
 
-![image](https://github.com/user-attachments/assets/49a47830-e312-4950-8947-ad9b6e1a257c)
+## Screenshots
+![image](https://github.com/user-attachments/assets/7310d03e-bf0c-4b09-be99-d4b95f447ad8)

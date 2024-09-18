@@ -62,5 +62,9 @@ group :development do
   gem "web-console"
 end
 
+group :test do
+  gem "webmock"
+end
+
 
 gem "tailwindcss-rails", "~> 2.7"
