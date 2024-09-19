@@ -19,6 +19,8 @@ bin/setup
 bin/rails dev:cache # turns on the caching
 
 export OPEN_WEATHER_API_KEY=<your key>
+
+bin/dev # starts the server && tailwind watch
 ```
 
 ## Running tests

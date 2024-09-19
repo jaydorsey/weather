@@ -1,11 +1,13 @@
 <%= turbo_stream.update "temperature" do %>
-  In <%= zip_code.name %>, it's currently <%= weather.temp %> <%= weather.scale %> 
-  with a low of <%= weather.min_temp%> <%= weather.scale %> 
-  and a high of <%= weather.max_temp%> <%= weather.scale %>. 
+  <div class="mt-6">
+    In <%= zip_code.name %>, it's currently <%= weather.temp %> <%= weather.scale %> 
+    with a low of <%= weather.min_temp%> <%= weather.scale %> 
+    and a high of <%= weather.max_temp%> <%= weather.scale %>. 
 
-  <% if cached %>
-    <p>
-      This temperature reading may be delayed by up to 30 minutes.
-    </p>
-  <% end %>
+    <% if cached %>
+      <div class="text-gray-300 text-sm italic mt-4">
+        This temperature reading may be delayed by up to 30 minutes.
+      </div>
+    <% end %>
+  </div>
 <% end %>
